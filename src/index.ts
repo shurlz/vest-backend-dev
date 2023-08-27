@@ -4,7 +4,7 @@ import { migrateDatabase, dropDatabase } from './database/migratedb';
 
 dotenv.config();
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 6200;
 
 migrateDatabase();
 // dropDatabase();

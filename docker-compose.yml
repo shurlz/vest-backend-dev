@@ -27,9 +27,9 @@ services:
   api:
     build: .
     ports:
-      - 6000:6000
+      - 6200:6200
     environment:
-      PORT: 6000
+      PORT: 6200
       TOKEN_SECRET: abcdef
       POSTGRES_USER: root
       POSTGRES_HOST: postgres
