@@ -1,0 +1,28 @@
+---
+- hosts: ec2_instances
+  become: true
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Docker 
+      apt:
+        name:
+          - docker.io
+          - python3-pip
+        state: present
+
+    - name: Install Docker Compose
+      pip:
+        name: docker-compose
+        state: present
+        executable: pip3
+
+    - name: Clone Gitlab repository
+      git:
+        repo: https://github.com/shurlz/vest-backend-dev.git
+        dest: /var/www/html/vest
+
+    - name: Build and Deploy Docker Compose Application
+      command: docker-compose -f /var/www/html/vest/docker-compose.yaml up --build -d
