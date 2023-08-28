@@ -25,4 +25,4 @@
         dest: /var/www/html/vest
 
     - name: Build and Deploy Docker Compose Application
-      command: docker-compose -f /var/www/html/vest/docker-compose.yaml up --build -d
+      command: docker-compose -f /var/www/html/vest-backend-dev/docker-compose.yaml up --build -d

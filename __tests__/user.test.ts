@@ -1,17 +1,18 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+import {describe, expect, test} from '@jest/globals';
 import request from 'supertest';
 import { faker } from '@faker-js/faker';
 
 import app from '../src/app';
-import { pool } from '../src/database/postgresql';
+import { pool } from './dbSetup';
 import { CREATE_USER } from '../src/database/queries';
 
 
 // test create user, unique constraint, endpoint
 describe('POST /users', () => {
-    it('create new user, test create user endpoint', async () => {
+    test('create new user, test create user endpoint', async () => {
         // test endpoint 
         const reservedName = faker.person.firstName(); 
 
@@ -41,7 +42,7 @@ describe('POST /users', () => {
 
 // fetch users logic, bulk fetch / create
 describe('POST /users', () => {
-    it('create bulk user, fetch users', async () => {
+    test('create bulk user, fetch users', async () => {
         let apiResponses = [];
 
         for (let i=0; i < 15; i++) {

@@ -1,18 +1,19 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+import {describe, expect, test} from '@jest/globals';
 import request from 'supertest';
 import { faker } from '@faker-js/faker';
 
 import app from '../src/app';
 import bcrypt from 'bcryptjs';
-import { pool } from '../src/database/postgresql';
+import { pool } from './dbSetup';
 import { GET_USER } from '../src/database/queries';
 
 
 // test create token, login user
 describe('POST /users', () => {
-    it('create new user, test password hash, test user login, test token', async () => {
+    test('create new user, test password hash, test user login, test token', async () => {
         const name = faker.person.firstName(); 
         const password = 'password';
         
