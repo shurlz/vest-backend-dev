@@ -1,4 +1,4 @@
-### vest-backend-dev
+### vest-backend-dev - stack: [docker, IaC (terraform, ansible), nginx, AWS, TypeScript ...]
 
 ##### to run project 
       * docker compose up
